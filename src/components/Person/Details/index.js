@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import TextField from '@material-ui/core/TextField';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import { Form, Input, Button, Select, Row, Col } from 'antd';
+
+const Option = Select.Option;
 
 function PersonDeatils(props) {
   const [name, setName] = useState(props.name);
@@ -14,30 +13,37 @@ function PersonDeatils(props) {
     setName(event.target.value);
   }
 
-  function handleGenderChange(event) {
+  function handleGenderChange(value) {
     // props.onGenderChange
-    setGender(event.target.value);
+    setGender(value);
   }
 
   return (
-    <form noValidate autoComplete="off">
-      <TextField
-        id="outlined-name"
-        label="Name"
-        value={name}
-        onChange={handleNameChange}
-        margin="normal"
-        variant="outlined"
-      />
-      <Select value={gender} onChange={handleGenderChange} input={<OutlinedInput name="gender" />}>
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={'male'}>Male</MenuItem>
-        <MenuItem value={'female'}>Female</MenuItem>
-        <MenuItem value={'unknown'}>Unknown</MenuItem>
-      </Select>
-    </form>
+    <div style={{ padding: '10px' }}>
+      <Form layout="vertical">
+        <Row gutter={16}>
+          <Col span={8}>
+            <Form.Item label="Name">
+              <Input value={name} onChange={handleNameChange} />
+            </Form.Item>
+          </Col>
+
+          <Col span={4}>
+            <Form.Item label="Gender">
+              <Select value={gender} onChange={handleGenderChange}>
+                <Option value="male">Male</Option>
+                <Option value="female">Female</Option>
+                <Option value="unknown">Unknown</Option>
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+
+        <Row>
+          <Button type="primary">Save</Button>
+        </Row>
+      </Form>
+    </div>
   );
 }
 

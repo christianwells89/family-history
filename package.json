@@ -5,7 +5,7 @@
   "main": "public/electron.js",
   "homepage": "./",
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
+    "antd": "^3.13.6",
     "electron-is-dev": "^1.0.1",
     "react": "^16.8.3",
     "react-dev-utils": "^7.0.3",

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PersonDeatils from './components/Person/Details';
 
+import 'antd/dist/antd.css';
+
 function App() {
   const [person, setPerson] = useState({ name: 'Christian Wells', gender: 'male' });
 
