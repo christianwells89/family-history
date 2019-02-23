@@ -9,10 +9,10 @@ It is striving to store data in GEDCOM X JSON format, so as to be compatible wit
 The view library is React. Libraries used in conjunction are:
 
 - [x] Material UI - to handle layout and styling
-- [] Electron - to allow installation natively
-- [] React Router - for routing
-- [] Redux - to handle state
-- [] Redux Thunk - to handle side effects from actions
-- [] Jest - for testing
-- [] shortid - for short uids on people added
-- [] Formik - for form controls
+- [x] Electron - to allow installation natively
+- [ ] React Router - for routing
+- [ ] Redux - to handle state
+- [ ] Redux Thunk - to handle side effects from actions
+- [ ] Jest - for testing
+- [ ] shortid - for short uids on people added
+- [ ] Formik - for form controls
