@@ -4,13 +4,14 @@ import { Layout, Menu, Icon } from 'antd';
 
 import ScreensPerson from './Person';
 import ScreensChart from './Chart';
+import File from '../components/File';
 
 const { Header, Content, Footer } = Layout;
 
 const ScreensRoot = () => (
   <Router>
     <Layout className="full-height" style={{ minHeight: 700 }}>
-      <Header>
+      <Header style={{ display: 'inline-flex' }}>
         <div
           style={{
             float: 'left',
@@ -26,7 +27,7 @@ const ScreensRoot = () => (
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['1']}
-          style={{ lineHeight: '64px' }}
+          style={{ lineHeight: '64px', flex: 'auto' }}
         >
           <Menu.Item key="1">
             <Icon type="user" />
@@ -39,6 +40,9 @@ const ScreensRoot = () => (
             <Link to="/chart" />
           </Menu.Item>
         </Menu>
+        <div>
+          <File />
+        </div>
       </Header>
 
       <Content className="layout-content">
