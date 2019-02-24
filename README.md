@@ -10,9 +10,9 @@ The view library is React. Libraries used in conjunction are:
 
 - [x] Ant Design - to handle layout and styling
 - [x] Electron - to allow installation natively
-- [ ] React Router - for routing
+- [x] React Router - for routing
 - [ ] Redux - to handle state
 - [ ] Redux Thunk - to handle side effects from actions
-- [ ] Jest - for testing
+- [x] Jest - for testing
 - [ ] shortid - for short uids on people added
 - [ ] Formik - for form controls
