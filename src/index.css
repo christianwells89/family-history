@@ -14,7 +14,7 @@ code {
 .layout-content {
   margin: 24px 24px 0 24px;
   padding: 24px 0;
-  background: #fff;
+  background: #fff !important;
   height: 100%;
 }
 
