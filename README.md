@@ -12,7 +12,7 @@ The view library is React. Libraries used in conjunction are:
 - [x] Electron - to allow installation natively
 - [x] React Router - for routing
 - [ ] Redux - to handle state
-- [ ] Redux Thunk - to handle side effects from actions
+- [ ] Redux Observable - to handle side effects from actions, and observables are cooler than promises
 - [x] Jest - for testing
 - [ ] shortid - for short uids on people added
 - [ ] Formik - for form controls

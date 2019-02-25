@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 
 import Header from '../components/UI/Header';
@@ -13,9 +13,11 @@ const ScreensRoot = () => (
     <Layout className="full-height" style={{ minHeight: 700 }}>
       <Header />
 
-      <Content className="layout-content">
-        <Route path="/people" component={ScreensPerson} />
-        <Route path="/chart" component={ScreensChart} />
+      <Content id="rootContent" className="flex-column">
+        <Switch>
+          <Route path="/people" component={ScreensPerson} />
+          <Route path="/chart" component={ScreensChart} />
+        </Switch>
       </Content>
 
       <Footer style={{ textAlign: 'center', color: 'red' }}>Work In Progress</Footer>

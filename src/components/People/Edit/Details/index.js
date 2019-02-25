@@ -3,9 +3,9 @@ import { Form, Input, Button, Select, Row, Col } from 'antd';
 
 const Option = Select.Option;
 
-function PersonDeatils(props) {
-  const [name, setName] = useState(props.name);
-  const [gender, setGender] = useState(props.gender);
+function PersonDeatils({ person }) {
+  const [name, setName] = useState(person.name);
+  const [gender, setGender] = useState(person.gender);
 
   // Formik will eventually handle this
   function handleNameChange(event) {
@@ -19,7 +19,7 @@ function PersonDeatils(props) {
   }
 
   return (
-    <div style={{ padding: '10px' }}>
+    <div>
       <Form layout="vertical">
         <Row gutter={16}>
           <Col span={8}>

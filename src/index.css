@@ -13,12 +13,24 @@ code {
 
 .layout-content {
   margin: 24px 24px 0 24px;
-  padding: 24px;
+  padding: 24px 0;
   background: #fff;
   height: 100%;
 }
 
 #root,
+#rootContent > div,
 .full-height {
   height: 100%;
+}
+
+.flex-column,
+#rootContent > div {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.auto-flex,
+#rootContent > div {
+  flex: auto;
 }

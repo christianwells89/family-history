@@ -1,10 +1,10 @@
 import React from 'react';
 import PersonEdit from '../../components/People/Edit';
 
-const ScreenPersonEdit = ({ match: { params } }) => {
+const ScreenPersonEdit = ({ match }) => {
   return (
     <div>
-      <PersonEdit id={params.id} />
+      <PersonEdit id={match.params.id} match={match} />
     </div>
   );
 };
