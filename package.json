@@ -1,40 +1,10 @@
 {
-  "name": "family-history",
-  "version": "0.1.0",
   "private": true,
-  "main": "public/electron.js",
-  "homepage": "./",
-  "dependencies": {
-    "antd": "^3.13.6",
-    "electron-is-dev": "^1.0.1",
-    "moment": "^2.24.0",
-    "react": "^16.8.3",
-    "react-dev-utils": "^7.0.3",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
-  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "cross-env": "^5.2.0",
-    "electron": "^4.0.5",
-    "electron-builder": "^20.38.5",
-    "electron-devtools-installer": "^2.2.4",
-    "wait-on": "^3.2.0"
-  },
-  "scripts": {
-    "start": "concurrently \"cross-env BROWSER=none yarn react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "lerna": "^3.15.0"
+  }
 }
