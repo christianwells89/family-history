@@ -1,14 +1,16 @@
 {
-    "compilerOptions": {
-      "sourceMap": true,
-      "target": "es2017",
-      "outDir": "./dist",
-      "baseUrl": "./src"
-    },
-    "include": [
-      "src/**/*.ts"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es2017",
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,11 +1,13 @@
 import { Document, model, Schema } from 'mongoose';
 
-export interface Person {
-    fullName: string;
-}
+import { Person, PersonFactType } from '@cedar/types';
+import { FactFactory } from './fact';
+
+const factSchema = FactFactory<PersonFactType>();
 
 const PersonSchema = new Schema<Person>({
-    fullName: String
+  facts: [factSchema],
+  private: Boolean,
 });
 
 export const PersonModel = model<Person & Document>('Person', PersonSchema);

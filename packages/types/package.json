@@ -1,0 +1,16 @@
+{
+  "name": "@cedar/types",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "1.18.2",
+    "typescript": "3.5.2"
+  }
+}
