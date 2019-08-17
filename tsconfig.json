@@ -3,7 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@cedar/types": ["./packages/types/src/"]
+      "@cedar/types": [
+        "./packages/types/src/"
+      ],
+      "@cedar/utils": [
+        "./packages/utils/src/"
+      ],
     }
   }
 }

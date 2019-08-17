@@ -26,10 +26,10 @@ export interface PersonDisplay {
 }
 
 export enum Gender {
-  Male,
-  Female,
-  Intersex,
-  Unknown,
+  Male = 'male',
+  Female = 'female',
+  Intersex = 'intersex',
+  Unknown = 'unknown',
 }
 
 export interface Name {
@@ -37,38 +37,40 @@ export interface Name {
   /** The date the name was first used or adopted */
   date?: Date;
   nameForms: NameForm[];
-  type?: string;
+  type?: NameType;
 }
 
 export enum NameType {
-  Birth,
-  Married,
-  AlsoKnownAs,
-  Nickname,
-  Adoptive,
-  Formal,
-  Religious,
+  Birth = 'birth',
+  Married = 'married',
+  AlsoKnownAs = 'alsoKnownAs',
+  Nickname = 'nickname',
+  Adoptive = 'adoptive',
+  Formal = 'formal',
+  Religious = 'religious',
 }
 
 export interface NameForm {
-  /** Usually the full name. TODO Should be derived from parts, this could get out of sync with them */
+  /** Usually the full name.
+   * TODO: In the frontend if this is edited separately it should build the parts. If accompanied by parts let the user change it
+   */
   fullText: string;
   parts: NamePart[];
   /** Should be one of http://www.w3.org/International/articles/language-tags/. Default to `en` */
-  lang?: string;
+  lang: string;
 }
 
 export interface NamePart {
-  type: NameFormType;
+  type: NamePartType;
   value: string;
   qualifiers?: Qualifier<NamePartQualifier>[];
 }
 
-export enum NameFormType {
-  Given,
-  Surname,
-  Prefix,
-  Suffix,
+export enum NamePartType {
+  Given = 'given',
+  Surname = 'surname',
+  Prefix = 'prefix',
+  Suffix = 'suffix',
 }
 
 const example: Person = {
@@ -89,9 +91,9 @@ const example: Person = {
           fullText: 'Kevin James Kiermaier',
           lang: 'en',
           parts: [
-            { value: 'Kevin', type: 0 }, // Given
-            { value: 'James', type: 0 }, // Given
-            { value: 'Kiermaier', type: 2 }, // Surname
+            { value: 'Kevin', type: NamePartType.Given }, // Given
+            { value: 'James', type: NamePartType.Given }, // Given
+            { value: 'Kiermaier', type: NamePartType.Surname }, // Surname
           ],
         },
       ],

@@ -1,7 +1,7 @@
 import {
   Fact,
   CoupleRelationshipFactType,
-  ParentChildRelationshipType,
+  ParentChildRelationshipFactType,
 } from './fact';
 
 export interface Relationship {
@@ -9,10 +9,10 @@ export interface Relationship {
   person2: string;
   type: RelationshipType;
   // this doesn't mutually exclude the types. Does it matter?
-  facts: Fact<CoupleRelationshipFactType | ParentChildRelationshipType>[];
+  facts: Fact<CoupleRelationshipFactType | ParentChildRelationshipFactType>[];
 }
 
 export enum RelationshipType {
-  Couple,
-  ParentChild,
+  Couple = 'couple',
+  ParentChild = 'parentChild',
 }

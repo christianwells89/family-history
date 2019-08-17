@@ -1,15 +1,39 @@
-import { Schema } from 'mongoose';
-import { Fact, FactQualifier } from '@cedar/types';
-import { QualifierFactory } from './qualifier';
+import { Typegoose, prop, arrayProp } from 'typegoose';
 
-export function FactFactory<T>(): Schema<Fact<T>> {
-  const qualifierSchema = QualifierFactory<FactQualifier>();
+import {
+  PersonFactType,
+  CoupleRelationshipFactType,
+  ParentChildRelationshipFactType,
+} from '@cedar/types';
+import { FactQualifier } from './qualifier';
 
-  return new Schema<Fact<T>>({
-    date: { type: Date, required: false },
-    place: { type: String, required: false },
-    type: Number,
-    value: { type: String, required: false },
-    qualifiers: [qualifierSchema]
-  })
+// like qualifier this is not ideal, and should use generics
+
+class FactBase extends Typegoose {
+  @prop()
+  date?: Date;
+
+  @prop()
+  place?: string;
+
+  @prop()
+  value?: string;
+
+  @arrayProp({ items: FactQualifier })
+  qualifiers: FactQualifier[];
+}
+
+export class PersonFact extends FactBase {
+  @prop({ enum: PersonFactType })
+  type: PersonFactType;
+}
+
+export class CoupleRelationshipFact extends FactBase {
+  @prop({ enum: CoupleRelationshipFactType })
+  type: CoupleRelationshipFactType;
+}
+
+export class ParentChildRelationshipFact extends FactBase {
+  @prop({ enum: ParentChildRelationshipFactType })
+  type: ParentChildRelationshipFactType;
 }

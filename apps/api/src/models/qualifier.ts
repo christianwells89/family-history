@@ -1,9 +1,23 @@
-import { Schema } from 'mongoose';
-import { Qualifier } from '@cedar/types';
+import { Typegoose, prop } from 'typegoose';
 
-export function QualifierFactory<T>() {
-  return new Schema<Qualifier<T>>({
-    name: Number,
-    value: { type: String, required: false }
-  })
+import {
+  FactQualifier as FactQualifierEnum,
+  NamePartQualifier as NamePartQualifierEnum,
+} from '@cedar/types';
+
+// This is far less than ideal. But Typegoose doesn't like assigning an array of sub-documents to a generic type
+
+class QualifierBase extends Typegoose {
+  @prop()
+  value?: string;
+}
+
+export class FactQualifier extends QualifierBase {
+  @prop({ enum: FactQualifierEnum })
+  name: FactQualifierEnum;
+}
+
+export class NamePartQualifier extends QualifierBase {
+  @prop({ enum: NamePartQualifierEnum })
+  name: NamePartQualifierEnum;
 }
