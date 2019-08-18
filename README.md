@@ -16,3 +16,5 @@ The view library is React. Libraries used in conjunction are:
 - [x] Jest - for testing
 - [ ] shortid - for short uids on people added
 - [ ] Formik - for form controls
+
+Uses yarn workspaces with lerna, but it has some hacks to get "Go to definition" and type checking (without doing a watch and build every time something changes) working in VS Code. Namely, it uses a root `tsconfig.json` file for the whole project with has some paths set up. This means any references inside the editor will resolve to the source code. But each package has its own `tsconfig.build.json` that actually does the building, and in these cases those references will use the normal workspace package. It's brittle and not ideal. [This](https://github.com/microsoft/TypeScript/issues/25376) issue is focused on Typescript supporting common workspace paradigms (especially good now that npm has declared they're going to follow yarn's workspace configs). Need to check this periodically to see when it will be supported.
